@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('thumb');
             $table->string('price', 7);
             $table->string('series', 50);
-            $table->date('sale_date');
+            $table->date('sale_date')->default('2023-06-05');
             $table->string('type', 30);
             $table->string('artists', 200);
             $table->string('writers', 200);
