@@ -12,7 +12,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        return view('comics.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
     /**
@@ -34,32 +34,8 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Comic $comic)
+    /*public function show(Comic $comic)
     {
         //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Comic $comic)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Comic $comic)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Comic $comic)
-    {
-        //
-    }
+    }*/
 }
