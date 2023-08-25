@@ -29,14 +29,20 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $new_comic = new Comic;
+        $new_comic->fill($data);
+
+        $new_comic->save();
+
+        return to_route('comics.index');
     }
 
     /**
      * Display the specified resource.
      */
-    /*public function show(Comic $comic)
+    public function show(Comic $comic)
     {
         //
-    }*/
+    }
 }
