@@ -1,0 +1,61 @@
+@use "vars" as *;
+
+header {
+    height: 120px;
+
+    .container {
+        height: 100%;
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+
+            figure {
+                display: flex;
+                align-items: center;
+            }
+
+            ul {
+                display: flex;
+                height: 100%;
+
+                li {
+                    margin: 0 20px;
+                    height: 100%;
+
+                    a {
+                        text-transform: uppercase;
+                        color: rgb(80, 78, 78);
+                        font-size: 14px;
+                        font-weight: bold;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+
+                        &.active {
+                            color: $blue;
+                            border-bottom: 5px solid $blue;
+                        }
+                    }
+
+                    &:hover a {
+                        color: $blue;
+                        border-bottom: 5px solid $blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#jumbotron {
+    height: 400px;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+}
