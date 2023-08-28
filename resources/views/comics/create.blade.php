@@ -4,39 +4,72 @@
 
 @section('main-content')
 
-  <form class="py-5" action="{{ route('comics.store') }}" method="POST">
+  <div class="container pt-4">
 
-    @csrf
+    @if ($errors->any())
 
-    <label for="title">Titolo: </label>
-    <input type="text" name="title" id="title"><br><br>
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
 
-    <label for="description">Descrizione: </label>
-    <input type="text" name="description" id="description"><br><br>
+    @endif
 
-    <label for="thumb">Copertina: </label>
-    <input type="text" name="thumb" id="thumb"><br><br>
+    <form class="py-5" action="{{ route('comics.store') }}" method="POST">
 
-    <label for="price">Prezzo: </label>
-    <input type="text" name="price" id="price"><br><br>
+      @csrf
 
-    <label for="series">Serie: </label>
-    <input type="text" name="series" id="series"><br><br>
+      <div class="mb-3">
+        <label for="title" class="form-label">Titolo </label>
+        <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
+      </div>
 
-    <label for="sale_date">Data di vendita: </label>
-    <input type="text" name="sale_date" id="sale_date"><br><br>
+      <div class="mb-3">
+        <label for="description" class="form-label">Descrizione </label>
+        <textarea class="form-control" name="description" id="description">{{ old('description') }}</textarea>
+      </div>
 
-    <label for="type">Tipo: </label>
-    <input type="text" name="type" id="type"><br><br>
+      <div class="mb-3">
+        <label for="thumb" class="form-label">Copertina </label>
+        <input type="text" class="form-control" name="thumb" id="thumb" value="{{ old('thumb') }}">
+      </div>
 
-    <label for="artists">Artisti: </label>
-    <input type="text" name="artists" id="artists"><br><br>
+      <div class="mb-3">
+        <label for="price" class="form-label">Prezzo </label>
+        <input type="text" class="form-control" name="price" id="price" value="{{ old('price') }}">
+      </div>
 
-    <label for="writers">Scrittori: </label>
-    <input type="text" name="writers" id="writers"><br><br>
+      <div class="mb-3">
+        <label for="series" class="form-label">Serie </label>
+        <input type="text" class="form-control" name="series" id="series" value="{{ old('series') }}">
+      </div>
 
-    <button type="submit">Invia</button>
+      <div class="mb-3">
+        <label for="sale_date" class="form-label">Data di vendita </label>
+        <input type="text" class="form-control" name="sale_date" id="sale_date" value="{{ old('sale_date') }}">
+      </div>
 
-  </form>
+      <div class="mb-3">
+        <label for="type" class="form-label">Tipo </label>
+        <input type="text" class="form-control" name="type" id="type" value="{{ old('type') }}">
+      </div>
+
+      <div class="mb-3">
+        <label for="artists" class="form-label">Artisti </label>
+        <input type="text" class="form-control" name="artists" id="artists" value="{{ old('artists') }}">
+      </div>
+
+      <div class="mb-3">
+        <label for="writers" class="form-label">Scrittori </label>
+        <input type="text" class="form-control" name="writers" id="writers" value="{{ old('writers') }}">
+      </div>
+
+      <button type="submit" class="btn btn-primary text-white">Invia</button>
+
+    </form>
+  </div>
 
 @endsection
