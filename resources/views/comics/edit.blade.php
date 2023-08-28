@@ -5,7 +5,7 @@
 @section('main-content')
 
   <div class="container">
-    <form class="py-5" action="{{ route('comics.store') }}" method="POST">
+    <form class="py-5" method="POST" action="{{ route('comics.update', $comic) }}">
 
       @csrf
       @method('PUT')
