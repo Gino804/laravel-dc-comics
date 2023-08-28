@@ -29,6 +29,22 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|string|unique:comics',
+            'description' => 'nullable|string',
+            'thumb' => 'nullable|url',
+            'price' => 'required|string',
+            'series' => 'nullable|string',
+            'sale_date' => 'nullable|date',
+            'type' => 'nullable|string',
+            'artists' => 'nullable|string',
+            'writers' => 'nullable|string'
+        ], [
+            'title.required' => 'Il titolo è obbligatorio',
+            'price.required' => 'Il prezzo è obbligatorio',
+            'title.unique' => "Il fumetto con titolo $request->title esiste già"
+        ]);
+
         $data = $request->all();
         $new_comic = new Comic;
         $new_comic->fill($data);
@@ -61,6 +77,22 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->validate([
+            'title' => 'required|string|unique:comics',
+            'description' => 'nullable|string',
+            'thumb' => 'nullable|url',
+            'price' => 'required|string',
+            'series' => 'nullable|string',
+            'sale_date' => 'nullable|date',
+            'type' => 'nullable|string',
+            'artists' => 'nullable|string',
+            'writers' => 'nullable|string'
+        ], [
+            'title.required' => 'Il titolo è obbligatorio',
+            'price.required' => 'Il prezzo è obbligatorio',
+            'title.unique' => "Il fumetto con titolo $request->title esiste già"
+        ]);
+
         $data = $request->all();
 
         $comic->update($data);
